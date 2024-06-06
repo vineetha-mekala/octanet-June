@@ -1,0 +1,103 @@
+=========================
+PROBLEM:
+ATM INTERFACE
+=========================
+The ATMs in our cities are built on Python, as we have all seen them.
+It is a console-based application with five different classes. 
+In order to use the system, the user must enter his or her user ID and pin when it starts.
+Once the details are entered successfully, ATM functionality is unlocked. As a result of the project, the following operations can be performed:
+
+*Transactions History
+*Withdraw
+*Deposit
+*Transfer
+*Quit
+
+
+=============================
+SOURCE CODE:
+=============================
+import time
+print("please insert your CARD")
+time.sleep(5)
+password=1234
+pin=int(input("enter your ATM pin: "))
+balance=5000
+if pin==password:
+    while True :
+    
+        print("""
+              1==balance 
+              2==withdraw balance 
+              3==deposite balance 
+              4==exit
+              """
+              )
+        
+        try:
+         option=int(input("please enter your choice: "))
+        except:
+         print("please enter valid option: ")
+        if option==1:
+            print(f"your current balance is: {balance}")
+        if option==2:
+            withdraw_amount=int(input("please enter withdraw_amount: "))
+            if withdraw_amount>balance:
+                print(f"insufficient balance")
+            else:    
+                balance=balance-withdraw_amount
+                print(f"{withdraw_amount} is debited from your account: ")
+                print(f"your current balance is: {balance}")
+        if option==3:
+            deposite_amount=int(input("please enter deposite_amount: "))
+            balance=balance+deposite_amount
+            print(f"{deposite_amount} is credited to your amount")
+            print(f"your updated balance is: {balance}")
+        if option==4:
+            break
+
+else:
+ print("wrong pin please try again")
+
+
+
+=================
+OUTPUT
+=================
+please insert your CARD
+enter your ATM pin: 1234
+
+              1==balance 
+              2==withdraw balance 
+              3==deposite balance 
+              4==exit
+
+please enter your choice: 1
+your current balance is: 5000
+
+              1==balance
+              2==withdraw balance
+              3==deposite balance
+              4==exit
+
+please enter your choice: 2
+please enter withdraw_amount: 2000
+2000 is debited from your account:
+your current balance is: 3000
+
+              1==balance
+              2==withdraw balance
+              3==deposite balance
+              4==exit
+
+please enter your choice: 3
+please enter deposite_amount: 2000
+2000 is credited to your amount
+your updated balance is: 5000
+
+              1==balance
+              2==withdraw balance
+              3==deposite balance
+              4==exit
+
+please enter your choice: 4
